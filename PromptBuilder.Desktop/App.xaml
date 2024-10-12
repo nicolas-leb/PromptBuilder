@@ -1,9 +1,19 @@
-﻿<Application x:Class="PromptBuilder.Desktop.App"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:PromptBuilder.Desktop"
-             StartupUri="MainWindow.xaml">
+﻿<Application
+    x:Class="PromptBuilder.Desktop.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:PromptBuilder.Desktop"
+    xmlns:view="clr-namespace:PromptBuilder.Desktop.Views"
+    xmlns:viewModel="clr-namespace:PromptBuilder.Desktop.ViewModels">
     <Application.Resources>
-         
+        <DataTemplate DataType="{x:Type viewModel:ListTemplateViewModel}">
+            <view:ListTemplateView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:ListPromptViewModel}">
+            <view:ListPromptView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:SettingsViewModel}">
+            <view:SettingsView />
+        </DataTemplate>
     </Application.Resources>
 </Application>
