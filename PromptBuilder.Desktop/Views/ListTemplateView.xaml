@@ -11,15 +11,37 @@
     d:DesignWidth="800"
     mc:Ignorable="d">
     <Grid>
-        <ListView ItemsSource="{Binding Templates}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel>
+            <Button
+                Width="100"
+                Margin="10"
+                HorizontalAlignment="Right"
+                Command="{Binding CreateNewTemplateCommand}"
+                Content="New" />
+        </StackPanel>
+
+
+        <ListView Grid.Row="1" ItemsSource="{Binding Templates}">
             <ListView.View>
-                <GridView>
+                <GridView AllowsColumnReorder="False">
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Name}" Header="Name" />
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Category}" Header="Category" />
-                    <GridViewColumn Header="Use to build a prompt">
+                    <GridViewColumn Header="Build a prompt">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <Button Content="Use" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Edit">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Edit" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

@@ -19,6 +19,9 @@
             <DataTemplate DataType="{x:Type viewModel:SettingsViewModel}">
                 <view:SettingsView />
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:CreateTemplateViewModel}">
+                <view:CreateTemplateView />
+            </DataTemplate>
 
             <ResourceDictionary.MergedDictionaries>
                 <materialDesign:BundledTheme

@@ -8,7 +8,7 @@ using PromptBuilder.Desktop.Views;
 using System.Windows;
 
 /// <summary>
-/// Interaction logic for App.xaml
+/// Interaction logic for App.xaml.
 /// </summary>
 public partial class App : Application
 {
@@ -23,6 +23,7 @@ public partial class App : Application
             .AddSingleton<ListTemplateViewModel>()
             .AddSingleton<ListPromptViewModel>()
             .AddSingleton<SettingsViewModel>()
+            .AddTransient<CreateTemplateViewModel>()
             .BuildServiceProvider());
     }
 

@@ -1,6 +1,9 @@
 ﻿namespace PromptBuilder.Desktop.ViewModels;
 
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
+using PromptBuilder.Desktop.Messages;
 using PromptBuilder.Desktop.Models;
 using System.Collections.ObjectModel;
 
@@ -29,5 +32,11 @@ internal partial class ListTemplateViewModel : ObservableObject
                 Category = "Personnal",
             },
         };
+    }
+
+    [RelayCommand]
+    private void CreateNewTemplate()
+    {
+        WeakReferenceMessenger.Default.Send(new CreateNewTemplateMessage());
     }
 }
