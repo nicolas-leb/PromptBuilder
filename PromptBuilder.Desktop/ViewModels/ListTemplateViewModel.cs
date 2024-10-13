@@ -1,13 +1,33 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace PromptBuilder.Desktop.ViewModels;
 
-namespace PromptBuilder.Desktop.ViewModels
+using CommunityToolkit.Mvvm.ComponentModel;
+using PromptBuilder.Desktop.Models;
+using System.Collections.ObjectModel;
+
+internal partial class ListTemplateViewModel : ObservableObject
 {
-    internal partial class ListTemplateViewModel : ObservableObject
+    [ObservableProperty]
+    private ObservableCollection<TemplateModel> templates;
+
+    public ListTemplateViewModel()
     {
+        templates = new ObservableCollection<TemplateModel>()
+        {
+            new TemplateModel()
+            {
+                Name = "Business Email",
+                Category = "Business",
+            },
+            new TemplateModel()
+            {
+                Name = "Validate Requirement",
+                Category = "Business",
+            },
+            new TemplateModel()
+            {
+                Name = "Email Summary",
+                Category = "Personnal",
+            },
+        };
     }
 }

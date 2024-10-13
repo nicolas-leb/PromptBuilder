@@ -17,16 +17,19 @@
 
         <StackPanel Grid.Column="0">
             <Button
-                Height="25"
+                Height="30"
+                Margin="5"
                 Command="{Binding NavigateToPromptsCommand}"
                 Content="Prompts" />
             <Button
-                Height="25"
+                Height="30"
+                Margin="5"
                 Command="{Binding NavigateToTemplatesCommand}"
                 Content="Templates" />
 
             <Button
-                Height="25"
+                Height="30"
+                Margin="5"
                 Command="{Binding NavigateToSettingsCommand}"
                 Content="Settings" />
         </StackPanel>
