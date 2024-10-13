@@ -1,34 +1,43 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.DependencyInjection;
 using CommunityToolkit.Mvvm.Input;
-using PromptBuilder.Desktop.Services;
+using CommunityToolkit.Mvvm.Messaging;
 
 namespace PromptBuilder.Desktop.ViewModels;
 
 internal partial class ShellViewModel : ObservableObject
 {
-    [ObservableProperty]
-    private NavigationService navigationService;
 
-    public ShellViewModel(NavigationService navigationService)
-    {
-        this.navigationService = navigationService;
-    }
+    [ObservableProperty]
+    private ObservableObject currentView;
 
     [RelayCommand]
     public void NavigateToTemplates()
     {
-        this.NavigationService.NavigateTo<ListTemplateViewModel>();
+        var vm = Ioc.Default.GetService<ListTemplateViewModel>();
+        if (vm is not null)
+        {
+            this.CurrentView = vm;
+        }
     }
 
     [RelayCommand]
     public void NavigateToPrompts()
     {
-        this.NavigationService.NavigateTo<ListPromptViewModel>();
+        var vm = Ioc.Default.GetService<ListPromptViewModel>();
+        if (vm is not null)
+        {
+            this.CurrentView = vm;
+        }
     }
 
     [RelayCommand]
     public void NavigateToSettings()
     {
-        this.NavigationService.NavigateTo<SettingsViewModel>();
+        var vm = Ioc.Default.GetService<SettingsViewModel>();
+        if (vm is not null)
+        {
+            this.CurrentView = vm;
+        }
     }
 }

@@ -31,6 +31,6 @@
                 Content="Settings" />
         </StackPanel>
 
-        <ContentControl Grid.Column="1" Content="{Binding NavigationService.CurrentView}" />
+        <ContentControl Grid.Column="1" Content="{Binding CurrentView}" />
     </Grid>
 </Window>

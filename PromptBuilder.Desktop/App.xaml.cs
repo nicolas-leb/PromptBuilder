@@ -3,7 +3,6 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
-using PromptBuilder.Desktop.Services;
 using PromptBuilder.Desktop.ViewModels;
 using PromptBuilder.Desktop.Views;
 using System.Windows;
@@ -24,8 +23,6 @@ public partial class App : Application
             .AddSingleton<ListTemplateViewModel>()
             .AddSingleton<ListPromptViewModel>()
             .AddSingleton<SettingsViewModel>()
-            .AddSingleton<NavigationService>()
-            .AddSingleton<Func<Type, ObservableObject>>(serviceProvider => viewModelType => (ObservableObject)serviceProvider.GetService(viewModelType))
             .BuildServiceProvider());
     }
 
