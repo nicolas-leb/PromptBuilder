@@ -31,13 +31,6 @@
                 <GridView AllowsColumnReorder="False">
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Name}" Header="Name" />
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Category}" Header="Category" />
-                    <GridViewColumn Header="Build a prompt">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button Content="Use" />
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
                     <GridViewColumn Header="Edit">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>

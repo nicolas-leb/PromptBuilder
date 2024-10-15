@@ -4,11 +4,29 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:PromptBuilder.Desktop.Views"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="clr-namespace:PromptBuilder.Desktop.ViewModels"
+    d:DataContext="{d:DesignInstance Type=viewmodels:CreateTemplateViewModel}"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
     <Grid>
-        <TextBlock Text="Create new template !" />
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="250" />
+        </Grid.ColumnDefinitions>
+        <TextBox
+            VerticalAlignment="Stretch"
+            AcceptsReturn="True"
+            SpellCheck.IsEnabled="True"
+            Text="{Binding TemplateBody}"
+            TextWrapping="Wrap"
+            VerticalScrollBarVisibility="Auto" />
+        <StackPanel Grid.Column="1">
+            <Button Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" ToolTip="Add a new variable">
+                <materialDesign:PackIcon Kind="Plus" />
+            </Button>
+        </StackPanel>
     </Grid>
 </UserControl>
