@@ -24,9 +24,14 @@
             TextWrapping="Wrap"
             VerticalScrollBarVisibility="Auto" />
         <StackPanel Grid.Column="1">
-            <Button Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" ToolTip="Add a new variable">
+            <TextBox Text="{Binding NewVariableName}" />
+            <Button
+                Command="{Binding AddNewVariableCommand}"
+                Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
+                ToolTip="Add a new variable">
                 <materialDesign:PackIcon Kind="Plus" />
             </Button>
+            <ListView ItemsSource="{Binding TemplateVariables}" />
         </StackPanel>
     </Grid>
 </UserControl>
