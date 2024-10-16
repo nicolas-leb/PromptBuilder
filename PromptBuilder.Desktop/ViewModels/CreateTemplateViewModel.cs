@@ -1,6 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using PromptBuilder.Desktop.Models;
+using PromptBuilder.Library.Models;
+using PromptBuilder.Library.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -85,5 +87,19 @@ internal partial class CreateTemplateViewModel : ObservableObject
         }
 
         this.TemplateBody += "{" + this.SelectedVariable + "}";
+    }
+
+    [RelayCommand]
+    private async void SaveTemplate()
+    {
+        var template = new Template
+        {
+            Name = this.Name,
+            Category = this.Category,
+            Variables = this.TemplateVariables.ToList(),
+            Body = this.TemplateBody,
+        };
+        CancellationTokenSource cts = new CancellationTokenSource();
+        await TemplateService.Save(template, cts.Token);
     }
 }

@@ -50,6 +50,20 @@
                 </TextBox.Text>
             </TextBox>
         </DockPanel>
+
+        <Button
+            Grid.Column="2"
+            Width="70"
+            Height="70"
+            Command="{Binding SaveTemplateCommand}"
+            Style="{StaticResource MaterialDesignIconButton}"
+            ToolTip="Save template">
+            <materialDesign:PackIcon
+                Width="50"
+                Height="50"
+                Kind="ContentSave" />
+        </Button>
+
         <TextBox
             Grid.Row="2"
             VerticalAlignment="Stretch"
