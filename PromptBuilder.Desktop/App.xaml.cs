@@ -3,6 +3,7 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
+using PromptBuilder.Desktop.Models;
 using PromptBuilder.Desktop.ViewModels;
 using PromptBuilder.Desktop.Views;
 using System.Windows;

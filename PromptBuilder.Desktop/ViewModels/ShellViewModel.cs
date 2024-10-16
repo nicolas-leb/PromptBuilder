@@ -53,6 +53,7 @@ internal partial class ShellViewModel : ObservableObject, IRecipient<CreateNewTe
     public void Receive(CreateNewTemplateMessage message)
     {
         var vm = Ioc.Default.GetService<CreateTemplateViewModel>();
+        vm.SetTemplateModel(message.Template);
         if (vm is not null)
         {
             this.CurrentView = vm;

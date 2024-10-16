@@ -14,22 +14,28 @@ internal partial class ListTemplateViewModel : ObservableObject
 
     public ListTemplateViewModel()
     {
-        templates = new ObservableCollection<TemplateModel>()
+        this.Templates = new ObservableCollection<TemplateModel>()
         {
             new TemplateModel()
             {
                 Name = "Business Email",
                 Category = "Business",
+                Variables = new List<string> { "var1", "var2"},
+                Body = "Body1",
             },
             new TemplateModel()
             {
                 Name = "Validate Requirement",
                 Category = "Business",
+                Variables = new List<string> { "var1", "var2"},
+                Body = "Body2",
             },
             new TemplateModel()
             {
                 Name = "Email Summary",
                 Category = "Personnal",
+                Variables = new List<string> { "var1", "var2"},
+                Body = "Body3",
             },
         };
     }
@@ -38,5 +44,11 @@ internal partial class ListTemplateViewModel : ObservableObject
     private void CreateNewTemplate()
     {
         WeakReferenceMessenger.Default.Send(new CreateNewTemplateMessage());
+    }
+
+    [RelayCommand]
+    private void EditTemplate(TemplateModel template)
+    {
+        WeakReferenceMessenger.Default.Send(new CreateNewTemplateMessage() { Template = template });
     }
 }
