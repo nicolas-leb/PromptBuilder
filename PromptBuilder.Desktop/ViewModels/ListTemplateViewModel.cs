@@ -5,6 +5,7 @@ using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using PromptBuilder.Desktop.Messages;
 using PromptBuilder.Desktop.Models;
+using PromptBuilder.Library.Services;
 using System.Collections.ObjectModel;
 
 internal partial class ListTemplateViewModel : ObservableObject
@@ -50,5 +51,12 @@ internal partial class ListTemplateViewModel : ObservableObject
     private void EditTemplate(TemplateModel template)
     {
         WeakReferenceMessenger.Default.Send(new CreateNewTemplateMessage() { Template = template });
+    }
+
+    [RelayCommand]
+    private void DeleteTemplate(TemplateModel template)
+    {
+        CancellationTokenSource cts = new CancellationTokenSource();
+        TemplateService.Delete(template.Name, cts.Token);
     }
 }
